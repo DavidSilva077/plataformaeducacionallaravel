@@ -7,9 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class Curso extends Model
 {
     protected $fillable = [
-        'nome',
+        'titulo',
         'descricao',
+        'data_inicio',
+        'data_fim',
         'area',
+    ];
+
+    protected $casts = [
+        'data_inicio' => 'date',
+        'data_fim' => 'date',
     ];
 
     public function disciplinas()

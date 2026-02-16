@@ -10,5 +10,6 @@ Route::prefix('admin')
 
         Route::middleware('auth.admin')->group(function () {
             Route::get('/dashboard', 'Admin\\DashboardController@index')->name('dashboard');
+            Route::resource('cursos', 'Admin\\CursoController');
         });
     });
