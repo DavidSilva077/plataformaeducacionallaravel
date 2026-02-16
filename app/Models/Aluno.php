@@ -23,4 +23,14 @@ class Aluno extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function cursos()
+    {
+        return $this->belongsToMany(Curso::class, 'matriculas')->withTimestamps();
+    }
+
+    public function matriculas()
+    {
+        return $this->hasMany(Matricula::class);
+    }
 }
