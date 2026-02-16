@@ -2,7 +2,13 @@
 
 Route::prefix('admin')
     ->as('admin.')
-    ->middleware(['web', 'auth:admin'])
+    ->middleware('web')
     ->group(function () {
-        Route::get('/dashboard', 'Admin\DashboardController@index')->name('dashboard');
+        Route::get('/login', 'Admin\\Auth\\LoginController@showLoginForm')->name('login');
+        Route::post('/login', 'Admin\\Auth\\LoginController@login')->name('login.submit');
+        Route::post('/logout', 'Admin\\Auth\\LoginController@logout')->name('logout');
+
+        Route::middleware('auth.admin')->group(function () {
+            Route::get('/dashboard', 'Admin\\DashboardController@index')->name('dashboard');
+        });
     });

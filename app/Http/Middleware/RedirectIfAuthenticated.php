@@ -18,6 +18,14 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
+            if ($guard === 'admin') {
+                return redirect()->route('admin.dashboard');
+            }
+
+            if ($guard === 'aluno') {
+                return redirect()->route('aluno.dashboard');
+            }
+
             return redirect('/home');
         }
 
