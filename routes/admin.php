@@ -12,5 +12,6 @@ Route::prefix('admin')
             Route::get('/dashboard', 'Admin\\DashboardController@index')->name('dashboard');
             Route::resource('cursos', 'Admin\\CursoController');
             Route::resource('professores', 'Admin\\ProfessorController');
+            Route::resource('disciplinas', 'Admin\\DisciplinaController');
         });
     });

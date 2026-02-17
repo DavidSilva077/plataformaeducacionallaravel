@@ -9,7 +9,7 @@ class Disciplina extends Model
     protected $fillable = [
         'curso_id',
         'professor_id',
-        'nome',
+        'titulo',
         'descricao',
     ];
 

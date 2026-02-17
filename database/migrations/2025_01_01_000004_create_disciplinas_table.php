@@ -12,7 +12,7 @@ class CreateDisciplinasTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('curso_id');
             $table->unsignedBigInteger('professor_id');
-            $table->string('nome');
+            $table->string('titulo');
             $table->text('descricao')->nullable();
             $table->timestamps();
 
