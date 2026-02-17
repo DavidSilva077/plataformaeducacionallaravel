@@ -12,10 +12,15 @@ docker compose up -d --build
 cp .env.docker .env
 docker compose exec app composer install
 docker compose exec app php artisan key:generate
-docker compose exec app php artisan migrate
+docker compose exec app php artisan migrate --seed
 ```
 
 Aplicação disponível em: `http://localhost:8000`
+
+Login administrativo:
+- URL: `http://localhost:8000/admin/login`
+- E-mail: `admin@teste.com`
+- Senha: `123456`
 
 ## Rodar testes
 ```bash
