@@ -24,7 +24,7 @@
                 @endphp
 
                 @if ($authenticatedUser)
-                    <span>{{ $authenticatedUser->name }}</span>
+                    <span>{{ $authenticatedUser->nome ?? $authenticatedUser->name }}</span>
                     <a href="{{ route('logout') }}"
                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         Sair

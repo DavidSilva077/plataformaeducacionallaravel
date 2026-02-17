@@ -13,5 +13,6 @@ Route::prefix('admin')
             Route::resource('cursos', 'Admin\\CursoController');
             Route::resource('professores', 'Admin\\ProfessorController');
             Route::resource('disciplinas', 'Admin\\DisciplinaController');
+            Route::resource('alunos', 'Admin\\AlunoController');
         });
     });

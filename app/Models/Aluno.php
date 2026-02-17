@@ -10,8 +10,9 @@ class Aluno extends Authenticatable
     use Notifiable;
 
     protected $fillable = [
-        'name',
+        'nome',
         'email',
+        'data_nascimento',
         'password',
     ];
 
@@ -22,6 +23,7 @@ class Aluno extends Authenticatable
 
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'data_nascimento' => 'date',
     ];
 
     public function cursos()
