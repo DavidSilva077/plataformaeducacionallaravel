@@ -1,41 +1,39 @@
 # Plataforma Educação Laravel
 
+Projeto em Laravel 5.8 para gestão de alunos, cursos e matrículas.
+
 ## Requisitos
-- PHP 7.3 ou 7.4
-- Composer
-- MySQL 5.7+
-- Node.js e NPM (opcional para assets)
+- Docker Desktop
+- Docker Compose (`docker compose`)
 
-## Instalação
+## Subir ambiente com Docker
 ```bash
-composer install
-cp .env.example .env
-php artisan key:generate
+docker compose up -d --build
+cp .env.docker .env
+docker compose exec app composer install
+docker compose exec app php artisan key:generate
+docker compose exec app php artisan migrate
 ```
 
-## Configuração do Banco
-Edite o `.env` com as credenciais do banco:
-```
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=plataforma_ensino
-DB_USERNAME=root
-DB_PASSWORD=root
-```
+Aplicação disponível em: `http://localhost:8000`
 
-## Rodar Migrations
+## Rodar testes
 ```bash
-php artisan migrate
+docker compose exec app ./vendor/bin/phpunit
 ```
 
-## Rodar Testes
+Teste específico:
 ```bash
-phpunit
+docker compose exec app ./vendor/bin/phpunit tests/Feature/RelatorioMediaIdadeTest.php
 ```
 
-## Credenciais Padrão
-Não há usuários pré-cadastrados. Crie registros via interface admin ou seeds.
+## Comandos úteis
+Parar ambiente:
+```bash
+docker compose down
+```
 
-- Login admin: `/admin/login`
-- Login aluno: `/aluno/login`
+Parar e remover volume do banco:
+```bash
+docker compose down -v
+```
