@@ -14,5 +14,6 @@ Route::prefix('admin')
             Route::resource('professores', 'Admin\\ProfessorController');
             Route::resource('disciplinas', 'Admin\\DisciplinaController');
             Route::resource('alunos', 'Admin\\AlunoController');
+            Route::resource('matriculas', 'Admin\\MatriculaController')->only(['index', 'create', 'store', 'destroy']);
         });
     });
