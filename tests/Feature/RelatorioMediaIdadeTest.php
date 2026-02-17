@@ -31,4 +31,25 @@ class RelatorioMediaIdadeTest extends TestCase
 
         Carbon::setTestNow();
     }
+
+    public function testRetornaAlunoMaisNovoEMaisVelho()
+    {
+        $maisVelho = factory(Aluno::class)->create([
+            'nome' => 'Aluno Mais Velho',
+            'data_nascimento' => '1980-01-01',
+        ]);
+        $maisNovo = factory(Aluno::class)->create([
+            'nome' => 'Aluno Mais Novo',
+            'data_nascimento' => '2010-01-01',
+        ]);
+        factory(Aluno::class)->create([
+            'nome' => 'Aluno Sem Data',
+            'data_nascimento' => null,
+        ]);
+
+        $service = app(ProfessorJubilutReportService::class);
+
+        $this->assertEquals($maisNovo->id, optional($service->alunoMaisNovo())->id);
+        $this->assertEquals($maisVelho->id, optional($service->alunoMaisVelho())->id);
+    }
 }

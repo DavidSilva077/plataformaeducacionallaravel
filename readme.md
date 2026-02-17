@@ -17,15 +17,26 @@ docker compose exec app php artisan migrate --seed
 
 Aplicação disponível em: `http://localhost:8000`
 
-Login administrativo:
+## Credenciais de teste
+Admin:
 - URL: `http://localhost:8000/admin/login`
 - E-mail: `admin@teste.com`
 - Senha: `123456`
 
-## Rodar testes
+Aluno:
+- URL: `http://localhost:8000/aluno/login`
+- E-mail: `aluno@teste.com`
+- Senha: `123456`
+
+## Validação rápida
 ```bash
 docker compose exec app ./vendor/bin/phpunit
 ```
+
+Rotas principais para smoke test visual:
+- `/admin/dashboard`
+- `/aluno/dashboard`
+- `/admin/relatorios/professor-jubilut`
 
 Teste específico:
 ```bash
