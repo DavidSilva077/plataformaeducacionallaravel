@@ -7,6 +7,6 @@
 
     <p>{{ $professor->email }}</p>
 
-    <a href="{{ route('admin.professores.edit', $professor) }}">Editar</a>
-    <a href="{{ route('admin.professores.index') }}">Voltar</a>
+    <a href="{{ route('admin.professores.edit', $professor) }}" class="btn btn-outline-primary">Editar</a>
+    <a href="{{ route('admin.professores.index') }}" class="btn btn-link">Voltar</a>
 @endsection

@@ -6,20 +6,20 @@
     <h1>Recuperar senha</h1>
 
     @if (session('status'))
-        <div>{{ session('status') }}</div>
+        <div class="alert alert-success">{{ session('status') }}</div>
     @endif
 
-    <form method="POST" action="{{ route('password.email') }}">
+    <form method="POST" action="{{ route('password.email') }}" class="col-lg-5">
         @csrf
 
-        <div>
-            <label for="email">E-mail</label>
-            <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus>
+        <div class="mb-3">
+            <label for="email" class="form-label">E-mail</label>
+            <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus class="form-control">
             @error('email')
-                <span>{{ $message }}</span>
+                <div class="text-danger">{{ $message }}</div>
             @enderror
         </div>
 
-        <button type="submit">Enviar link</button>
+        <button type="submit" class="btn btn-primary">Enviar link</button>
     </form>
 @endsection

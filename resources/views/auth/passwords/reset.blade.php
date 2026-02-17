@@ -5,32 +5,32 @@
 @section('content')
     <h1>Redefinir senha</h1>
 
-    <form method="POST" action="{{ route('password.update') }}">
+    <form method="POST" action="{{ route('password.update') }}" class="col-lg-6">
         @csrf
 
         <input type="hidden" name="token" value="{{ $token }}">
 
-        <div>
-            <label for="email">E-mail</label>
-            <input id="email" type="email" name="email" value="{{ $email ?? old('email') }}" required autofocus>
+        <div class="mb-3">
+            <label for="email" class="form-label">E-mail</label>
+            <input id="email" type="email" name="email" value="{{ $email ?? old('email') }}" required autofocus class="form-control">
             @error('email')
-                <span>{{ $message }}</span>
+                <div class="text-danger">{{ $message }}</div>
             @enderror
         </div>
 
-        <div>
-            <label for="password">Senha</label>
-            <input id="password" type="password" name="password" required>
+        <div class="mb-3">
+            <label for="password" class="form-label">Senha</label>
+            <input id="password" type="password" name="password" required class="form-control">
             @error('password')
-                <span>{{ $message }}</span>
+                <div class="text-danger">{{ $message }}</div>
             @enderror
         </div>
 
-        <div>
-            <label for="password-confirm">Confirmar senha</label>
-            <input id="password-confirm" type="password" name="password_confirmation" required>
+        <div class="mb-3">
+            <label for="password-confirm" class="form-label">Confirmar senha</label>
+            <input id="password-confirm" type="password" name="password_confirmation" required class="form-control">
         </div>
 
-        <button type="submit">Redefinir senha</button>
+        <button type="submit" class="btn btn-primary">Redefinir senha</button>
     </form>
 @endsection

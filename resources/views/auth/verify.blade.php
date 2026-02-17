@@ -6,12 +6,12 @@
     <h1>Verificação de e-mail</h1>
 
     @if (session('resent'))
-        <div>Um novo link de verificação foi enviado.</div>
+        <div class="alert alert-success">Um novo link de verificação foi enviado.</div>
     @endif
 
     <p>Antes de continuar, verifique o seu e-mail.</p>
     <form method="POST" action="{{ route('verification.resend') }}">
         @csrf
-        <button type="submit">Reenviar link</button>
+        <button type="submit" class="btn btn-primary">Reenviar link</button>
     </form>
 @endsection

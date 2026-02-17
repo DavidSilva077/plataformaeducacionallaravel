@@ -7,11 +7,11 @@
 
     <p>{{ $disciplina->descricao }}</p>
 
-    <ul>
+    <ul class="list-unstyled">
         <li>Curso: {{ optional($disciplina->curso)->titulo }}</li>
         <li>Professor: {{ optional($disciplina->professor)->nome }}</li>
     </ul>
 
-    <a href="{{ route('admin.disciplinas.edit', $disciplina) }}">Editar</a>
-    <a href="{{ route('admin.disciplinas.index') }}">Voltar</a>
+    <a href="{{ route('admin.disciplinas.edit', $disciplina) }}" class="btn btn-outline-primary">Editar</a>
+    <a href="{{ route('admin.disciplinas.index') }}" class="btn btn-link">Voltar</a>
 @endsection

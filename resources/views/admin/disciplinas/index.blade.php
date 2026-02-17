@@ -5,9 +5,10 @@
 @section('content')
     <h1>Disciplinas</h1>
 
-    <a href="{{ route('admin.disciplinas.create') }}">Nova disciplina</a>
+    <a href="{{ route('admin.disciplinas.create') }}" class="btn btn-primary mb-3">Nova disciplina</a>
 
-    <table>
+    <div class="table-responsive">
+        <table class="table table-striped align-middle">
         <thead>
             <tr>
                 <th>Título</th>
@@ -22,13 +23,13 @@
                     <td>{{ $disciplina->titulo }}</td>
                     <td>{{ optional($disciplina->curso)->titulo }}</td>
                     <td>{{ optional($disciplina->professor)->nome }}</td>
-                    <td>
-                        <a href="{{ route('admin.disciplinas.show', $disciplina) }}">Ver</a>
-                        <a href="{{ route('admin.disciplinas.edit', $disciplina) }}">Editar</a>
-                        <form action="{{ route('admin.disciplinas.destroy', $disciplina) }}" method="POST" style="display:inline;">
+                    <td class="d-flex gap-2">
+                        <a href="{{ route('admin.disciplinas.show', $disciplina) }}" class="btn btn-sm btn-outline-secondary">Ver</a>
+                        <a href="{{ route('admin.disciplinas.edit', $disciplina) }}" class="btn btn-sm btn-outline-primary">Editar</a>
+                        <form action="{{ route('admin.disciplinas.destroy', $disciplina) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit">Excluir</button>
+                            <button type="submit" class="btn btn-sm btn-outline-danger">Excluir</button>
                         </form>
                     </td>
                 </tr>
@@ -38,7 +39,8 @@
                 </tr>
             @endforelse
         </tbody>
-    </table>
+        </table>
+    </div>
 
     {{ $disciplinas->links() }}
 @endsection

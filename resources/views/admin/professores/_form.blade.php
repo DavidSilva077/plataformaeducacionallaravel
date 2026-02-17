@@ -1,15 +1,15 @@
-<div>
-    <label for="nome">Nome</label>
-    <input id="nome" type="text" name="nome" value="{{ old('nome', $professor->nome ?? '') }}" required>
+<div class="mb-3">
+    <label for="nome" class="form-label">Nome</label>
+    <input id="nome" type="text" name="nome" value="{{ old('nome', $professor->nome ?? '') }}" required class="form-control">
     @error('nome')
-        <span>{{ $message }}</span>
+        <div class="text-danger">{{ $message }}</div>
     @enderror
 </div>
 
-<div>
-    <label for="email">E-mail</label>
-    <input id="email" type="email" name="email" value="{{ old('email', $professor->email ?? '') }}">
+<div class="mb-3">
+    <label for="email" class="form-label">E-mail</label>
+    <input id="email" type="email" name="email" value="{{ old('email', $professor->email ?? '') }}" class="form-control">
     @error('email')
-        <span>{{ $message }}</span>
+        <div class="text-danger">{{ $message }}</div>
     @enderror
 </div>

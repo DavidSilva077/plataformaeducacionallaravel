@@ -9,6 +9,6 @@
 
     <p>Data de nascimento: {{ optional($aluno->data_nascimento)->format('d/m/Y') }}</p>
 
-    <a href="{{ route('admin.alunos.edit', $aluno) }}">Editar</a>
-    <a href="{{ route('admin.alunos.index') }}">Voltar</a>
+    <a href="{{ route('admin.alunos.edit', $aluno) }}" class="btn btn-outline-primary">Editar</a>
+    <a href="{{ route('admin.alunos.index') }}" class="btn btn-link">Voltar</a>
 @endsection

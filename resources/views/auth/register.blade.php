@@ -5,38 +5,38 @@
 @section('content')
     <h1>Cadastro</h1>
 
-    <form method="POST" action="{{ route('register') }}">
+    <form method="POST" action="{{ route('register') }}" class="col-lg-6">
         @csrf
 
-        <div>
-            <label for="name">Nome</label>
-            <input id="name" type="text" name="name" value="{{ old('name') }}" required autofocus>
+        <div class="mb-3">
+            <label for="name" class="form-label">Nome</label>
+            <input id="name" type="text" name="name" value="{{ old('name') }}" required autofocus class="form-control">
             @error('name')
-                <span>{{ $message }}</span>
+                <div class="text-danger">{{ $message }}</div>
             @enderror
         </div>
 
-        <div>
-            <label for="email">E-mail</label>
-            <input id="email" type="email" name="email" value="{{ old('email') }}" required>
+        <div class="mb-3">
+            <label for="email" class="form-label">E-mail</label>
+            <input id="email" type="email" name="email" value="{{ old('email') }}" required class="form-control">
             @error('email')
-                <span>{{ $message }}</span>
+                <div class="text-danger">{{ $message }}</div>
             @enderror
         </div>
 
-        <div>
-            <label for="password">Senha</label>
-            <input id="password" type="password" name="password" required>
+        <div class="mb-3">
+            <label for="password" class="form-label">Senha</label>
+            <input id="password" type="password" name="password" required class="form-control">
             @error('password')
-                <span>{{ $message }}</span>
+                <div class="text-danger">{{ $message }}</div>
             @enderror
         </div>
 
-        <div>
-            <label for="password-confirm">Confirmar senha</label>
-            <input id="password-confirm" type="password" name="password_confirmation" required>
+        <div class="mb-3">
+            <label for="password-confirm" class="form-label">Confirmar senha</label>
+            <input id="password-confirm" type="password" name="password_confirmation" required class="form-control">
         </div>
 
-        <button type="submit">Cadastrar</button>
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
     </form>
 @endsection

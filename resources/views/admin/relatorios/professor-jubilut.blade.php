@@ -6,7 +6,8 @@
     <h1>Relatório Professor Jubilut</h1>
 
     <h2>Média de idade por curso</h2>
-    <table>
+    <div class="table-responsive">
+        <table class="table table-striped align-middle">
         <thead>
             <tr>
                 <th>Curso</th>
@@ -31,7 +32,8 @@
                 </tr>
             @endforelse
         </tbody>
-    </table>
+        </table>
+    </div>
 
     <h2>Aluno mais novo</h2>
     @if ($alunoMaisNovo)

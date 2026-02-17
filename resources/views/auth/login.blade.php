@@ -5,35 +5,33 @@
 @section('content')
     <h1>Login</h1>
 
-    <form method="POST" action="{{ route('login') }}">
+    <form method="POST" action="{{ route('login') }}" class="col-lg-5">
         @csrf
 
-        <div>
-            <label for="email">E-mail</label>
-            <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus>
+        <div class="mb-3">
+            <label for="email" class="form-label">E-mail</label>
+            <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus class="form-control">
             @error('email')
-                <span>{{ $message }}</span>
+                <div class="text-danger">{{ $message }}</div>
             @enderror
         </div>
 
-        <div>
-            <label for="password">Senha</label>
-            <input id="password" type="password" name="password" required>
+        <div class="mb-3">
+            <label for="password" class="form-label">Senha</label>
+            <input id="password" type="password" name="password" required class="form-control">
             @error('password')
-                <span>{{ $message }}</span>
+                <div class="text-danger">{{ $message }}</div>
             @enderror
         </div>
 
-        <div>
-            <label>
-                <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
-                Lembrar-me
-            </label>
+        <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+            <label class="form-check-label" for="remember">Lembrar-me</label>
         </div>
 
-        <button type="submit">Entrar</button>
+        <button type="submit" class="btn btn-primary">Entrar</button>
 
-        <div>
+        <div class="mt-3">
             <a href="{{ route('password.request') }}">Esqueceu sua senha?</a>
         </div>
     </form>

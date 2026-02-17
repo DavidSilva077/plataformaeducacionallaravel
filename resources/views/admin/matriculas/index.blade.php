@@ -5,9 +5,10 @@
 @section('content')
     <h1>Matrículas</h1>
 
-    <a href="{{ route('admin.matriculas.create') }}">Nova matrícula</a>
+    <a href="{{ route('admin.matriculas.create') }}" class="btn btn-primary mb-3">Nova matrícula</a>
 
-    <table>
+    <div class="table-responsive">
+        <table class="table table-striped align-middle">
         <thead>
             <tr>
                 <th>Aluno</th>
@@ -23,10 +24,10 @@
                     <td>{{ optional($matricula->curso)->titulo }}</td>
                     <td>{{ $matricula->created_at->format('d/m/Y') }}</td>
                     <td>
-                        <form action="{{ route('admin.matriculas.destroy', $matricula) }}" method="POST" style="display:inline;">
+                        <form action="{{ route('admin.matriculas.destroy', $matricula) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit">Remover</button>
+                            <button type="submit" class="btn btn-sm btn-outline-danger">Remover</button>
                         </form>
                     </td>
                 </tr>
@@ -36,7 +37,8 @@
                 </tr>
             @endforelse
         </tbody>
-    </table>
+        </table>
+    </div>
 
     {{ $matriculas->links() }}
 @endsection

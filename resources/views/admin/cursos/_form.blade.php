@@ -1,31 +1,31 @@
-<div>
-    <label for="titulo">Título</label>
-    <input id="titulo" type="text" name="titulo" value="{{ old('titulo', $curso->titulo ?? '') }}" required>
+<div class="mb-3">
+    <label for="titulo" class="form-label">Título</label>
+    <input id="titulo" type="text" name="titulo" value="{{ old('titulo', $curso->titulo ?? '') }}" required class="form-control">
     @error('titulo')
-        <span>{{ $message }}</span>
+        <div class="text-danger">{{ $message }}</div>
     @enderror
 </div>
 
-<div>
-    <label for="descricao">Descrição</label>
-    <textarea id="descricao" name="descricao">{{ old('descricao', $curso->descricao ?? '') }}</textarea>
+<div class="mb-3">
+    <label for="descricao" class="form-label">Descrição</label>
+    <textarea id="descricao" name="descricao" class="form-control">{{ old('descricao', $curso->descricao ?? '') }}</textarea>
     @error('descricao')
-        <span>{{ $message }}</span>
+        <div class="text-danger">{{ $message }}</div>
     @enderror
 </div>
 
-<div>
-    <label for="data_inicio">Data de início</label>
-    <input id="data_inicio" type="date" name="data_inicio" value="{{ old('data_inicio', optional($curso->data_inicio ?? null)->format('Y-m-d')) }}">
+<div class="mb-3">
+    <label for="data_inicio" class="form-label">Data de início</label>
+    <input id="data_inicio" type="date" name="data_inicio" value="{{ old('data_inicio', optional($curso->data_inicio ?? null)->format('Y-m-d')) }}" class="form-control">
     @error('data_inicio')
-        <span>{{ $message }}</span>
+        <div class="text-danger">{{ $message }}</div>
     @enderror
 </div>
 
-<div>
-    <label for="data_fim">Data de fim</label>
-    <input id="data_fim" type="date" name="data_fim" value="{{ old('data_fim', optional($curso->data_fim ?? null)->format('Y-m-d')) }}">
+<div class="mb-3">
+    <label for="data_fim" class="form-label">Data de fim</label>
+    <input id="data_fim" type="date" name="data_fim" value="{{ old('data_fim', optional($curso->data_fim ?? null)->format('Y-m-d')) }}" class="form-control">
     @error('data_fim')
-        <span>{{ $message }}</span>
+        <div class="text-danger">{{ $message }}</div>
     @enderror
 </div>
