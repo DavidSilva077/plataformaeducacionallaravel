@@ -10,5 +10,7 @@ Route::prefix('aluno')
 
         Route::middleware('auth.aluno')->group(function () {
             Route::get('/dashboard', 'Aluno\\DashboardController@index')->name('dashboard');
+            Route::get('/perfil', 'Aluno\\ProfileController@edit')->name('profile.edit');
+            Route::put('/perfil', 'Aluno\\ProfileController@update')->name('profile.update');
         });
     });
